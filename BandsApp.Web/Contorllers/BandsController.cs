@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BandsApp.Web.Contorllers
 {
-    public class BandController: Controller
+    public class BandsController: Controller
     {
         static BandService service = new BandService();
 
@@ -14,11 +14,25 @@ namespace BandsApp.Web.Contorllers
             return View(service.GetAll());
         }
 
+        [HttpGet("/Add")]
+        public IActionResult AddBand()
+        {
+                return View();
+        }
+
         [HttpPost("/Add")]
         public IActionResult AddBand(Band newBand)
         {
+            if (!ModelState.IsValid)
+                return View();
+
             service.AddBand(newBand);
-            return View(nameof(Index));
+            return RedirectToAction(nameof(Index));
         }
+
+
+
+
+        
     }
 }
