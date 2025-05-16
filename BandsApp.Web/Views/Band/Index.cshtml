@@ -1,0 +1,17 @@
+﻿@model BandsApp.Web.Models.Band[]
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>BandsApp</title>
+    </head>
+    <body>
+        <h1>Bands App</h1>
+        <ul>
+            @foreach (var band in Model)
+            {
+                <li>@band.Name</li>
+            }
+        </ul>
+        
+</body>
+    </html>

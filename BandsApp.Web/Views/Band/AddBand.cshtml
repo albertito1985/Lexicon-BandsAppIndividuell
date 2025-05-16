@@ -1,0 +1,15 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>Add Band</title>
+    </head>
+    <body>
+        <h1>Add Band</h1>
+        <form asp-controller="BandController" asp-action="AddBand">
+            <label asp-for="Name"></label>
+            <input asp-for="Name"/>
+            <input type="submit" value="Add Band"/>
+        </form>
+    </body>
+    </html>
