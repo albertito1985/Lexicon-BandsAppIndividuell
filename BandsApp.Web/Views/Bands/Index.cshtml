@@ -1,18 +1,13 @@
-﻿@model BandsApp.Web.Models.Band[]
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-<!DOCTYPE html>
-    <html>
-    <head>
-        <title>BandsApp</title>
-    </head>
-    <body>
-        <h1>Bands App</h1>
-        <ul>
-            @foreach (var band in Model)
-            {
-                <li>@band.Name</li>
-            }
-        </ul>
-        <a asp-controller="bands" asp-action="addband">Add Band</a>
-</body>
-    </html>
+﻿@model IndexVM
+
+@{
+    ViewBag.Title = "Bands";
+}
+
+<ul>
+    @foreach (var band in Model.Bands)
+    {
+        <li>@band.Name</li>
+    }
+</ul>
+<a asp-controller="bands" asp-action="addband">Add Band</a>

@@ -1,3 +1,5 @@
+using BandsApp.Web.Services;
+
 namespace BandsApp.Web
 {
     public class Program
@@ -6,8 +8,10 @@ namespace BandsApp.Web
         {
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddControllersWithViews();
+            builder.Services.AddSingleton<BandService>();
             var app = builder.Build();
             app.MapControllers();
+            app.UseStaticFiles();
             app.Run();
         }
     }
